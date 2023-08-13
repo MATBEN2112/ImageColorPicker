@@ -1,6 +1,6 @@
 // Select file input fields
 var input = document.getElementById('form-control');
-var dropArea = document.getElementById("drop-area")
+var dropArea = document.getElementById("drop-area");
 // Select color code input fields
 var htmlInput = document.getElementById('html');
 var rgbInput = document.getElementById('rgb');
@@ -12,41 +12,39 @@ var colorCanvas = document.getElementById("colorCanvas");
 var mouse  = {x : 0, y : 0};
 const zoom = 18;
 
-document.addEventListener('dragenter', rejectDefaultCase, false)
-document.addEventListener('dragover', rejectDefaultCase, false)
-document.addEventListener('dragleave', rejectDefaultCase, false)
-document.addEventListener('drop', rejectDefaultCase, false)
+document.addEventListener('dragenter', rejectDefaultCase, false);
+document.addEventListener('dragover', rejectDefaultCase, false);
+document.addEventListener('dragleave', rejectDefaultCase, false);
+document.addEventListener('drop', rejectDefaultCase, false);
 
 function rejectDefaultCase(event){
 	// Prevent file opening in browser window
-	console.log(event)
 	event.preventDefault();
 	event.stopPropagation();
-}
+};
 
-dropArea.addEventListener('dragenter', dndEventListener, false)
-dropArea.addEventListener('dragover', dndEventListener, false)
-dropArea.addEventListener('dragleave', dndEventListener, false)
-dropArea.addEventListener('drop', dndEventListener, false)
+dropArea.addEventListener('dragenter', dndEventListener, false);
+dropArea.addEventListener('dragover', dndEventListener, false);
+dropArea.addEventListener('dragleave', dndEventListener, false);
+dropArea.addEventListener('drop', dndEventListener, false);
 
 function dndEventListener(event) {  
-
-  	rejectDefaultCase(event)
+  	rejectDefaultCase(event);
   	// Highlight drop area when item is dragged over it
   	if (event.type=='dragenter'||event.type=='dragover'){dropArea.classList.add('highlight');}
-  	else {dropArea.classList.remove('highlight');}
-}
+  	else {dropArea.classList.remove('highlight');};
+};
 
 
 // Get the image file from input filed
 dropArea.addEventListener('drop', function (e) {
-    var file = e.dataTransfer.files[0]
-    if (file.type.slice(0,5)=="image") {display_img(file)} 
-})
+    var file = e.dataTransfer.files[0];
+    if (file.type.slice(0,5)=="image") {display_img(file);};
+});
 input.addEventListener('change', function(e) {
     var file = e.target.files[0];
-    if (file) {display_img(file)}      	
-})
+    if (file) {display_img(file);};  	
+});
 
 function display_img(imageFile) {
 
@@ -63,7 +61,7 @@ function display_img(imageFile) {
         	w=imageCanvas.width;
 			h=imageCanvas.height;
 			var imageContext = imageCanvas.getContext("2d", { willReadFrequently: true });
-          	imageContext.clearRect(0,0,w,h)
+          	imageContext.clearRect(0,0,w,h);
 
         	w/h > myImage.width / myImage.height ? w = myImage.width / myImage.height * h : h = w / (myImage.width / myImage.height);// Image resize to fit canvas
 
@@ -101,7 +99,7 @@ function display_img(imageFile) {
 				var html = "#" + ("000000" + rgbToHTML(rgb[0], rgb[1], rgb[2])).slice(-6); // html color code
 				
 				// Send color code to input field
-				htmlInput.value = html
+				htmlInput.value = html;
 				rgbInput.value = "rgb("+rgb.slice(0,3)+")";
 				
 				// Fill color canvas with selected color
@@ -115,8 +113,8 @@ function display_img(imageFile) {
     			if (r > 255 || g > 255 || b > 255)
         			alert("Invalid color code");
     			return ((r << 16) | (g << 8) | b).toString(16);
-			}
-		}
-	}
+			};
+		};
+	};
     
-}
+};
