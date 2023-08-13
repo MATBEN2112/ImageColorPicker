@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewpoint" content="width=divice-windth,
+	initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+	<title>Picture color</title>
+	<link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+<div id="content">
+  <div class="title">
+    <span style="color:#FF0000">C</span>
+    <span style="color:#66CC66">o</span>
+    <span style="color:#FF9966">l</span>
+    <span style="color:#FFCCCC">o</span>
+    <span style="color:#FF0066">r</span>
+    <span style="color:#FF0000">s</span>
+    <span style="color:#FF9966">F</span>
+    <span style="color:#FFCCCC">r</span>
+    <span style="color:#FF0066">o</span>
+    <span style="color:#FF0000">m</span>
+    <span style="color:#FF9966">I</span>
+    <span style="color:#FFCCCC">m</span>
+    <span style="color:#FF0066">a</span>
+    <span style="color:#FF0000">g</span>
+    <span style="color:#66CC66">e</span>
+  </div>
+    <div id="container">
+		<div class="row" id="drop-area">
+			<form method="post" enctype="multipart/form-data">
+			    <label for="form-control" class="button">Click here to upload image from your computer</label>
+			    <input id="form-control" accept="image/*" type="file">
+			</form><br>
+            <div class="image">
+		      	<canvas id="imageCanvas" width="450" height="300"></canvas>
+            </div><br>
+            <div class="zoom">
+		      	<canvas id="zoomCanvas" width="150" height="150"></canvas>
+  			</div>    
+	    </div>
+	   	<div class="row">
+        	<div class="color">
+	   			<canvas id="colorCanvas" width="50" height="50"></canvas>
+        	</div><br>
+        	<div class="field">
+	        	<label for="html" class="input-text">HTML color code:</label>
+	        	<input class="color-code" type="text" id="html" placeholder="#000000" readonly="readonly" ><br>
+
+	        	<label for="rgb" class="input-text">RGB color code:</label>
+	        	<input class="color-code" type="text" id="rgb" placeholder="rgb(0, 0, 0)" readonly="readonly">
+          </div>
+	    </div>
+    </div>
+</div>
+
+<script src="img_handler.js"></script>
+</body>
+</html>
